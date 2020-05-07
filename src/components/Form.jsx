@@ -3,16 +3,15 @@ import styled from 'styled-components';
 
 const toxicity = require('@tensorflow-models/toxicity');
 
-const Form = () => {
+const Form = ({ setReport }) => {
   const [text, setText] = useState('');
-  const [toxicityReport, setToxicityReport] = useState([]);
 
   const getToxicity = async (e) => {
     e.preventDefault();
     const threshold = await toxicity.load(0.9);
-    const model = await threshold.classify([text]);
-    console.log(model);
-    setToxicityReport(model);
+    const toxicReport = await threshold.classify([text]);
+    // console.log(model);
+    setReport(toxicReport);
     setText('');
   };
 
