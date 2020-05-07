@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const ToxicityReport = (props) => {
-  const [placeholder, setPlaceholder] = useState('');
+const ToxicityReport = ({ report }) => {
+  const [placeholder, setPlaceholder] = useState('hi');
+
+  console.log(report);
 
   return (
     <div>
-      This is the toxicity report.
+      {report ? <p>this is the report.</p> : <p>{placeholder}</p>}
     </div>
   );
 };
