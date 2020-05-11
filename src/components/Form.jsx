@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Donut } from 'react-dial-knob';
+import Button from './Button';
 
 const StyledForm = styled.form`
   width: 40%;
@@ -61,7 +62,7 @@ const Form = ({ setReport }) => {
         onValueChange={setSensitivity}
       >
         <label>
-          Sensitivity Level
+          Sensitivity Threshold
         </label>
       </Donut>
       <input
@@ -70,7 +71,7 @@ const Form = ({ setReport }) => {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <button type="submit">GO</button>
+      <Button type="submit">GO!</Button>
     </StyledForm>
   );
 };
