@@ -1,18 +1,58 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
+const Report = styled.section`
+  width: 15%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  
+  .reportItem {
+    width: 100%;
+    display: flex;
+  }
+  
+  p {
+    width: 50%;
+    padding: 0 1rem;
+  }
+  
+  .iconBox {
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+ 
+  svg {
+    padding: 0 1rem;
+    color: pink;
+  }
+  
+`;
 
 const ToxicityReport = ({ report }) => {
-  const [placeholder, setPlaceholder] = useState('Hi, enter some text to analyzed for toxicity.');
+  const reportResults = report ? report.map((item) => (
+    <div className="reportItem">
+      <p>{item.label.split('_').map((word) => `${word.slice(0, 1).toUpperCase()}${word.slice(1)}`).join(' ').trim()}</p>
+      <div className="iconBox">
+        {item.results[0].match
+          ? <FontAwesomeIcon icon={faCheck} />
+          : <FontAwesomeIcon icon={faTimesCircle} />}
+      </div>
 
-  console.log(report);
+    </div>
+  ))
+    : null;
 
   return (
-    <div>
-      {report ? <p>this is the report.</p> : <p>{placeholder}</p>}
-    </div>
+    <Report>
+      {report ? reportResults : null}
+    </Report>
   );
 };
 
