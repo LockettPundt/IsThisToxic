@@ -39,7 +39,6 @@ const Form = ({ setReport }) => {
 
   const getToxicity = async (e) => {
     e.preventDefault();
-    // console.log(sensitivity);
     const threshold = await toxicity.load(sensitivity / 100);
     const toxicReport = await threshold.classify([text]);
     setReport(toxicReport);
