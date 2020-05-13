@@ -40,11 +40,8 @@ const ToxicityReport = ({ report }) => {
     <div className="reportItem">
       <p>{item.label.split('_').map((word) => `${word.slice(0, 1).toUpperCase()}${word.slice(1)}`).join(' ').trim()}</p>
       <div className="iconBox">
-        {item.results[0].match
-          ? <FontAwesomeIcon icon={faCheck} />
-          : <FontAwesomeIcon icon={faTimesCircle} />}
+        <FontAwesomeIcon icon={item.results[0].match ? faCheck : faTimesCircle} />
       </div>
-
     </div>
   ))
     : null;
