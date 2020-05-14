@@ -12,7 +12,6 @@ const Title = styled.h1`
 
 function App() {
   const [report, setReport] = useState(null);
-
   return (
     <div className="App">
       <Title>Is This Toxic?</Title>
