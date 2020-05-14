@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
@@ -18,6 +19,9 @@ const StyledForm = styled.form`
     border: none;
     border-bottom: black 1px solid;
     
+  }
+  label {
+    text-align: center;
   }
   
   input:focus {
@@ -76,7 +80,7 @@ const Form = ({ setReport }) => {
 };
 
 Form.propTypes = {
-  setReport: PropTypes.func.isRequired,
+  setReport: PropTypes.func,
 };
 
 export default Form;
