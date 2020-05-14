@@ -1,3 +1,5 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/require-default-props */
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
@@ -32,12 +34,15 @@ const Report = styled.section`
     padding: 0 1rem;
     color: pink;
   }
+  @media screen and (max-width: 600px) {
+    width: 50%;
+  }
   
 `;
 
 const ToxicityReport = ({ report }) => {
   const reportResults = report ? report.map((item) => (
-    <div className="reportItem">
+    <div className="reportItem" key={`${item}`}>
       <p>{item.label.split('_').map((word) => `${word.slice(0, 1).toUpperCase()}${word.slice(1)}`).join(' ').trim()}</p>
       <div className="iconBox">
         <FontAwesomeIcon icon={item.results[0].match ? faCheck : faTimesCircle} />
@@ -54,7 +59,7 @@ const ToxicityReport = ({ report }) => {
 };
 
 ToxicityReport.propTypes = {
-  report: PropTypes.arrayOf.isRequired,
+  report: PropTypes.array,
 };
 
 export default ToxicityReport;
