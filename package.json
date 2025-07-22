@@ -14,12 +14,12 @@
     "@testing-library/user-event": "^7.1.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "jsdom": "^16.2.2",
+    "jsdom": "^16.7.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dial-knob": "^1.1.5",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "styled-components": "^5.1.0"
   },
   "scripts": {
